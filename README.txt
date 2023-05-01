@@ -1,9 +1,9 @@
 ****************************************
-**Cloudmersive Coding exercise project**
+Cloudmersive Coding exercise project
 @Author: Monte Albert
 ****************************************
 
-**Summary:
+Summary:
 This project contains powershell files for each item in the project requirement:
     - Script 1: Patching: Install all the latest Windows Updates, if any, and restart the server if needed
     - Script 2: Setup: Install Microsoft IIS, Google Chrome, and Docker Enterprise automatically, restarting
@@ -17,13 +17,13 @@ This project contains powershell files for each item in the project requirement:
 
 All the .ps1 files are named with Script numbers and the title. We have additional file Utils.ps1 that is imported in every single file. The current implementation of it is it uses logs.
 
-**PreRequisites:
+PreRequisites:
 This project works based on the following assumptions.
 * You have already commissioned an AWS EC2 instance with Windows 2022. (Note that if needed, I can open up my instance to be accessible by your IP and provide you RDP file if you needed to test)
 * If this needs to be run on any other cloud Windows 2022, a line in Script1 needs to be modified regarding AWSPowerShell.NetCore
 * Scripts needs to be run in proper sequence. Except Script3 can run independently as it only scans items.
 
-**How-To:
+How-To:
 * You need to actually RDP into the Windows Server 2022 machine maping your local drive to copy the contents on the folder.
 * Start powershell (as administrator/elevated might be needed for some tasks specially docker installation)
 * Run the scripts like:
@@ -35,10 +35,10 @@ This project works based on the following assumptions.
 * Do not run Utils.ps1. It is included by all the above scripts.
 
 
-**Troubleshooting/Checking sequence of events
+Troubleshooting/Checking sequence of events
 * open c:\wulogs\scriptLogs.log in a notepad
 
-**Misc comments/Future refinements:
+Misc comments/Future refinements:
 * Script3_Security takes a very long time in scanning using windows defender.
 * Script3_Security go through each .exe and .dll file and prints whether the file
 * Script2_Setup installs IIS and Google Chrome perfectly, but might need more refinements since there was a problem running docker for Script4_DeployContainers. It keeps crashing on my EC2 instance. Hence I was not able to fully test Script4_DeployContainers and Script5_ManageContainers
